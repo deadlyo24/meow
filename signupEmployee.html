@@ -1,0 +1,168 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+        form {
+          width: 500px;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+        input[type="text"], select {
+          width: 90%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+        input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+        label {
+          display: block;
+          margin: 10px 0 5px 0;
+        }
+      </style>
+
+ </head>
+ <body>
+  
+  <nav id="nav">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">DesignX</label>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="signupEmployee.html">My Info</a></li>
+      <li><a href="#">Change Password</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Feedback</a></li>
+    </ul>
+  </nav>
+
+    <section id="table">
+        <form >
+        <label for="name">Name:</label>
+        <input type="text" id="namebox" name="name" />
+
+        <label for="address">Address:</label>
+        <input type="text" id="addressbox" name="address" />
+
+        <label for="city">City:</label>
+        <input type="text" id="citybox" name="city" />
+
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincodebox" name="pincode" />
+
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobilebox" name="mobile" />
+
+        <label for="designation">Designation:</label>
+        <select id="designationbox" name="designation">
+            <option value="manager">Manager</option>
+            <option value="developer">Crew</option>
+        </select>
+
+        <label for="branch">Branch:</label>
+        <select id="branchbox" name="branch">
+            <option value="Damortis">Damortis</option>
+            <option value="Rosario">Rosario</option>
+            <option value="Agoo">Agoo</option>
+        </select>
+
+        <input type="submit" value="submit" id="submitbtn" />
+        </form>
+        </section>
+
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";;
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+    // Your web app's Firebase configuration
+            const firebaseConfig = {
+            apiKey: "AIzaSyAg6dtito--Tk0uqYZokR7OGNgnpTQWE1g",
+            authDomain: "sedatabase-89997.firebaseapp.com",
+            databaseURL: "https://sedatabase-89997-default-rtdb.firebaseio.com",
+            projectId: "sedatabase-89997",
+            storageBucket: "sedatabase-89997.appspot.com",
+            messagingSenderId: "654204594887",
+            appId: "1:654204594887:web:98f361baebe0d6ffe2ece2"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Get a reference to the Firebase database
+    const db = getDatabase();
+
+    // Get references to the HTML elements
+        var namebox = document.getElementById("namebox");
+        var addressbox = document.getElementById("addressbox");
+        // var idbox = document.getElementById("idbox"); // This element is not defined in the HTML
+        var citybox = document.getElementById("citybox");
+        var pincodebox = document.getElementById("pincodebox");
+        var mobilebox = document.getElementById("mobilebox");
+        var designationbox = document.getElementById("designationbox");
+        var branchbox = document.getElementById("branchbox");
+    
+        var submitbtn = document.getElementById("submitbtn");
+
+    // Insert data function
+    function InsertData(event) {
+        event.preventDefault(); // Prevents the default form submission behavior
+        set(ref(db, "TheEmployees/" +namebox.value), {
+            Name: namebox.value,
+            Address: addressbox.value,
+            City: citybox.value,
+            Pin: pincodebox.value,
+            Mobile: mobilebox.value,
+            Designation: designationbox.value,
+            Branch: branchbox.value,
+        })
+            .then(() => {
+                alert("Data saved successfully");
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }
+
+    // Assign the event to the button
+
+   // submitbtn.addEventListener('click', InsertData);
+   if (submitbtn) {
+            submitbtn.addEventListener('click', InsertData);
+        } else {
+            console.error("Submit button not found in the DOM");
+        }
+       
+       
+    </script>
+    
+ </body>
+ </html>      
+       
