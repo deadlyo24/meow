@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
  </head>
  <body>
   
   <nav id="nav">
-    <div>
-      <label class="logo">DesignX</label>
-    </div>
-
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">DesignX</label>
     <ul>
       <li><a class="active" href="#">Home</a></li>
       <li><a href="signupEmployee.html">My Info</a></li>
-      <li><a href="#">Change Password</a></li>
+      <li><a href="changePassword.html">Change Password</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Feedback</a></li>
     </ul>
   </nav>
+
+
 
   <section id="form-section">
     <div class="container">
@@ -59,7 +62,9 @@
     </div>
   </section>
 
-    <script type="module">
+
+
+  <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";;
     // TODO: Add SDKs for Firebase products that you want to use
@@ -123,9 +128,11 @@
             console.error("Submit button not found in the DOM");
         }
        
+
+        
        
     </script>
-    
+
  </body>
  </html>      
        
