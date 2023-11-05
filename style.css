@@ -1,19 +1,57 @@
-*{
+html,body {
     padding: 0;
     margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+
   }
   body{
-    font-family: montserrat;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
   }
+  a {
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+ 
+  form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+  }
+  input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  label {
+    display: block;
+    margin: 10px 0 5px 0;
+  }
+
   nav{
     background: #0082e6;
-    height: 80px;
     width: 100%;
     position: sticky;
     top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   label.logo{
     color: white;
@@ -22,9 +60,9 @@
     padding: 0 100px;
     font-weight: bold;
   }
-  nav ul{
-    float: right;
-    margin-right: 20px;
+  nav ul {
+    
+    list-style: none;
   }
   nav ul li{
     display: inline-block;
@@ -54,6 +92,13 @@
   #check{
     display: none;
   }
+
+  .container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @media (max-width: 952px){
     label.logo{
       font-size: 30px;
@@ -93,7 +138,8 @@
       left: 0;
     }
   }
-  section{
+#form-section {
+    padding-top: 50px;
     background: url(bg1.jpg) no-repeat;
     background-size: cover;
     height: calc(100vh - 80px);
